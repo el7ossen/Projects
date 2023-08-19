@@ -10,4 +10,4 @@
 ``````````````console
 $ echo hello
 hello
-``````````````console
+``````````````
