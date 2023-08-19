@@ -1,6 +1,13 @@
 import string, random
 
-len = int(input("Choose the lenght of your password: "))
+while True:
+    try:
+        len = int(input("Choose the length of your password: "))
+        break
+
+    except ValueError:
+        print("Please input a number! \n")
+        continue
 
 char = string.ascii_letters + string.digits + "!@#$-_"
 
