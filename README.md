@@ -11,4 +11,4 @@
 $ echo hello
 hello
 ````````````````````````````
-[Click here](google.com)
+[Click here](https://scholar.google.com/)
