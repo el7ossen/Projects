@@ -25,7 +25,3 @@ while True:
         continue
     else:
         break
-
-
-
-    # hello there
