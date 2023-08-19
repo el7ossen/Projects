@@ -1,7 +1,9 @@
 import string, random
 
-char = [string.printable]
+len = int(input("Choose the lenght of your password: "))
 
-random.shuffle(char)
+char = string.ascii_letters + string.digits + "!@#$-_"
 
-print(char)
+password = random.sample(char, len)
+
+print("".join(password))
