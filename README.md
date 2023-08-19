@@ -6,9 +6,8 @@
 - etc.
 
 ### secondary
-#### smaller
-
-```
+#### terminal:
+``````````````console
 $ echo hello
 hello
-```
+``````````````console
