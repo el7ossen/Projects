@@ -43,6 +43,10 @@ while True:
     elif op == "4":
         print("Number A is? ")
         A = Decimal(input())
+        print("Number B is? ")
+        B = Decimal(input())
+        Div = A / B
+        print("Your answer is ", Div)
 
 
     ret = str(input("Would you like to retry? y/n "))
