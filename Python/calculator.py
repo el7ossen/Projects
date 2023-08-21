@@ -12,7 +12,7 @@ while True:
 
     try:
         op = int(input("Option: "))
-        if op < 0:
+        if op < 1:
             print("Please input an option!")
             continue
     except ValueError:
