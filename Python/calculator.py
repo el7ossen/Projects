@@ -1,53 +1,38 @@
-import math, fractions
-from decimal import Decimal
+from decimal import Decimal as D
 
 while True:
     print(
         "\nChoose an operation:\n\n",
-        "Quit\n",
-        "1 Addition\n",
-        "2 Subtraction\n",
-        "3 Multiplication\n",
-        "4 Division\n",
+        "1 Quit\n",
+        "2 Addition\n",
+        "3 Subtraction\n",
+        "4 Multiplication\n",
+        "5 Division\n",
     )
 
-    op = str(input("Option: "))
+    try:
+        op = int(input("Option: "))
+        if op < 0:
+            print("Please input an option!")
+            continue
+    except ValueError:
+        print("Please input an option!")
+        continue
 
-    if op == "q" or op == "quit":
+    if op == 1:
         break
 
-    elif op == "1":
-        print("Number A is? ")
-        A = Decimal(input())
-        print("Number B is? ")
-        B = Decimal(input())
-        Add = A + B
-        print("Your answer is ", Add)
+    A = D(input("Number A is? "))
+    B = D(input("Number B is? "))
 
-    elif op == "2":
-        print("Number A is? ")
-        A = Decimal(input())
-        print("Number B is? ")
-        B = Decimal(input())
-        Sub = A - B
-        print("Your answer is ", Sub)
-    
-    elif op == "3":
-        print("Number A is? ")
-        A = Decimal(input())
-        print("Number B is? ")
-        B = Decimal(input())
-        Mult = A * B
-        print("Your answer is ", Mult)
-
-    elif op == "4":
-        print("Number A is? ")
-        A = Decimal(input())
-        print("Number B is? ")
-        B = Decimal(input())
-        Div = A / B
-        print("Your answer is ", Div)
-
+    if op == 2:
+        print("Your answer is: ", A + B)
+    elif op == 3:
+        print("Your answer is: ", A - B)
+    elif op == 4:
+        print("Your answer is: ", A * B)
+    elif op == 5:
+        print("Your answer is: ", A / B)
 
     ret = str(input("Would you like to retry? y/n "))
     if ret == "y":
