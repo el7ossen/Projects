@@ -37,5 +37,5 @@ while True:
     ret = str(input("Would you like to retry? y/n "))
     if ret == "y":
         continue
-    else:
+    elif ret == "n":
         break
