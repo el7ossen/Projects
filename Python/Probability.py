@@ -1,98 +1,107 @@
-import decimal, math
+import decimal, math, time
 
-print("Choose from these options")
-print("1 P(A∩B) independent")
-print("2 P(A∩B) dependent")
-print("3 P(A|B)")
-print("4 P(A∪B) non-mutually exclusive")
-print("5 P(A∪B) mutually exclusive")
-print("6 P(A')")
-print("7 nPr")
-print("8 nCr")
-
-choice = str(input("Option: "))
-
-if choice == "1":
+def pAB():
     print("P(A)= ")
-    PA = decimal.Decimal(input())
+    pAB.PA = decimal.Decimal(input())
     print("P(B)= ")
-    PB = decimal.Decimal(input())
-    totalAB = decimal.Decimal(PA) * decimal.Decimal(PB)
-    AnB = decimal.Decimal(totalAB)
-    print("your probability is", "%.2f" % (AnB * 100), "%")
+    pAB.PB = decimal.Decimal(input())
+    
 
-elif choice == "2":
-    print("P(A)= ")
-    PA = decimal.Decimal(input())
-    print("P(B)= ")
-    PB = decimal.Decimal(input())
-    totalAB = (
-        decimal.Decimal(PA)
-        * decimal.Decimal(PA)
-        * decimal.Decimal(PB)
-        / decimal.Decimal(PB)
-    )
-    AnB = decimal.Decimal(totalAB)
-    print("your probability is", "%.2f" % (AnB * 100), "%")
+while True:
+    print(
+        "\nPlease choose from these options:",
+        "\n1 P(A∩B) independent",
+        "\n2 P(A∩B) dependent",
+        "\n3 P(A|B)",
+        "\n4 P(A∪B) non-mutually exclusive",
+        "\n5 P(A∪B) mutually exclusive",
+        "\n6 P(A')",
+        "\n7 nPr",
+        "\n8 nCr",
+        "\nquit"
+          )
 
-elif choice == "3":
-    print("P(A)= ")
-    PA = decimal.Decimal(input())
-    print("P(B)= ")
-    PB = decimal.Decimal(input())
-    totalAB = decimal.Decimal(PA) * decimal.Decimal(PB) / decimal.Decimal(PB)
-    A_B = decimal.Decimal(totalAB)
-    print("your probability is", "%.2f" % (A_B * 100), "%")
+    choice = str(input("Option: "))
 
-elif choice == "4":
-    print("P(A)= ")
-    PA = decimal.Decimal(input())
-    print("P(B)= ")
-    PB = decimal.Decimal(input())
-    totalAB = (
-        decimal.Decimal(PA)
-        + decimal.Decimal(PB)
-        - (decimal.Decimal(PA) * decimal.Decimal(PB))
-    )
-    AuB = decimal.Decimal(totalAB)
-    print("your probability is", "%.2f" % (AuB * 100), "%")
+    if choice == "1":
+        pAB()
+        totalAB = decimal.Decimal(pAB.PA) * decimal.Decimal(pAB.PB)
+        AnB = decimal.Decimal(totalAB)
+        print("your probability is", "%.2f" % (AnB * 100), "%")
 
-elif choice == "5":
-    print("P(A)= ")
-    PA = decimal.Decimal(input())
-    print("P(B)= ")
-    PB = decimal.Decimal(input())
-    totalAB = decimal.Decimal(PA) + decimal.Decimal(PB)
-    AuB = decimal.Decimal(totalAB)
-    print("your probability is", "%.2f" % (AuB * 100), "%")
+    elif choice == "2":
+        pAB()
+        totalAB = (
+            decimal.Decimal(pAB.PA)
+            * decimal.Decimal(pAB.PA)
+            * decimal.Decimal(pAB.PB)
+            / decimal.Decimal(pAB.PB)
+        )
+        AnB = decimal.Decimal(totalAB)
+        print("your probability is", "%.2f" % (AnB * 100), "%")
 
-elif choice == "6":
-    print("P(A)= ")
-    PA = decimal.Decimal(input())
-    PA_ = decimal.Decimal(1) - decimal.Decimal(PA)
-    print("your probability is", "%.2f" % (PA_ * 100), "%")
+    elif choice == "3":
+        pAB()
+        totalAB = decimal.Decimal(pAB.PA) * decimal.Decimal(pAB.PB) / decimal.Decimal(pAB.PB)
+        A_B = decimal.Decimal(totalAB)
+        print("your probability is", "%.2f" % (A_B * 100), "%")
 
-elif choice == "7":
-    print("n= ")
-    n = int(input())
-    print("r= ")
-    r = int(input())
-    print("n(A)= ")
-    nA = int(input())
-    nPr = math.factorial(n) / math.factorial((n - r))
-    nAnS = decimal.Decimal(nA) / decimal.Decimal(nPr)
-    print("your probability is", "%.2f" % (nAnS * 100), "%")
+    elif choice == "4":
+        pAB()
+        totalAB = (
+            decimal.Decimal(pAB.PA)
+            + decimal.Decimal(pAB.PB)
+            - (decimal.Decimal(pAB.PA) * decimal.Decimal(pAB.PB))
+        )
+        AuB = decimal.Decimal(totalAB)
+        print("your probability is", "%.2f" % (AuB * 100), "%")
 
-elif choice == "8":
-    print("n= ")
-    n = int(input())
-    print("r= ")
-    r = int(input())
-    print("n(A)= ")
-    nA = int(input())
-    nCr = math.factorial(n) / (math.factorial((n - r)) * math.factorial(r))
-    nAnS = decimal.Decimal(nA) / decimal.Decimal(nCr)
-    print("your probability is", "%.2f" % (nAnS * 100), "%")
+    elif choice == "5":
+        pAB()
+        totalAB = decimal.Decimal(pAB.PA) + decimal.Decimal(pAB.PB)
+        AuB = decimal.Decimal(totalAB)
+        print("your probability is", "%.2f" % (AuB * 100), "%")
 
-else:
-    print("wrong input")
+    elif choice == "6":
+        print("P(A)= ")
+        PA = decimal.Decimal(input())
+        PA_ = decimal.Decimal(1) - decimal.Decimal(PA)
+        print("your probability is", "%.2f" % (PA_ * 100), "%")
+
+    elif choice == "7":
+        print("n= ")
+        n = int(input())
+        print("r= ")
+        r = int(input())
+        print("n(A)= ")
+        nA = int(input())
+        nPr = math.factorial(n) / math.factorial((n - r))
+        nAnS = decimal.Decimal(nA) / decimal.Decimal(nPr)
+        print("your probability is", "%.2f" % (nAnS * 100), "%")
+
+    elif choice == "8":
+        print("n= ")
+        n = int(input())
+        print("r= ")
+        r = int(input())
+        print("n(A)= ")
+        nA = int(input())
+        nCr = math.factorial(n) / (math.factorial((n - r)) * math.factorial(r))
+        nAnS = decimal.Decimal(nA) / decimal.Decimal(nCr)
+        print("your probability is", "%.2f" % (nAnS * 100), "%")
+
+    elif choice == "quit" or choice == "q":
+        print("quitting")
+        break
+
+    else:
+        print("wrong input\n")
+        continue
+
+    con = str(input("Would you like to continue? y/n "))
+    
+    if con == "y" or con == "yes":
+        continue
+    elif con == "n" or con == "no":
+        print("exiting")
+        break
