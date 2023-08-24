@@ -1,4 +1,4 @@
-import string, random
+import string, random, pyperclip
 char = ((string.ascii_letters + string.digits + "!@#$-_"))
 while True:
     try:
@@ -10,5 +10,11 @@ while True:
     else:
         print("Please input a postitive number!\n") 
         continue
-password = random.choices(char, k=length)
-print("".join(password))
+passw = random.choices(char, k=length)
+
+password = "".join(passw)
+
+print(password)
+
+pyperclip.copy(password)
+print("Copied to clipboard.")
