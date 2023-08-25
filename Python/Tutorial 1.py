@@ -1,4 +1,4 @@
-n = int(input())
+n = int(input("whats n? "))
 steps = 0
 
 print(n)
