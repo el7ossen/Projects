@@ -1,13 +1,13 @@
 import sys, random
 
 try:
-    data = open("level.txt", "r").readlines()
+    data = open("./txt/level.txt", "r").readlines()
 except:
-    data = open("level.txt", "x")
-    data = open("level.txt", "w")
+    data = open("./txt/level.txt", "x")
+    data = open("./txt/level.txt", "w")
     data.write("0\n0\n0")
     data.close()
-    data = open("level.txt", "r").readlines()
+    data = open("./txt/level.txt", "r").readlines()
 
 try:
     lvl = max(1, int(data[0]))
@@ -27,7 +27,7 @@ except:
 while True:
     print("Enter XP gained (quit to quit):", end=" ")
     xpGained = input()
-    if xpGained == "quit":
+    if xpGained == "quit" or xpGained == "q":
         break
     elif xpGained == "done" or xpGained == "d":
         xpGained = random.randint(15, 40)
@@ -42,6 +42,6 @@ while True:
     print("Level:", lvl)
     print("Exp:", currentXp)
     print("Next:", lvlNext)
-    data = open("level.txt", "w")
+    data = open("./txt/level.txt", "w")
     data.write(str(lvl) + "\n" + str(currentXp) + "\n" + str(lvlNext))
     data.close()
