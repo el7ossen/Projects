@@ -1,4 +1,4 @@
-import decimal, math, time
+import decimal, math, sys
 
 def pAB():
     print("P(A)= ")
@@ -18,7 +18,7 @@ while True:
         "\n6 P(A')",
         "\n7 nPr",
         "\n8 nCr",
-        "\nquit"
+        "\nexit"
           )
 
     choice = str(input("Option: "))
@@ -90,9 +90,8 @@ while True:
         nAnS = decimal.Decimal(nA) / decimal.Decimal(nCr)
         print("your probability is", "%.2f" % (nAnS * 100), "%")
 
-    elif choice == "quit" or choice == "q":
-        print("quitting")
-        break
+    elif choice == "exit" or choice == "e":
+        sys.exit("Exiting")
 
     else:
         print("wrong input\n")
@@ -103,5 +102,4 @@ while True:
     if con == "y" or con == "yes":
         continue
     elif con == "n" or con == "no":
-        print("exiting")
-        break
+        sys.exit("exiting")
