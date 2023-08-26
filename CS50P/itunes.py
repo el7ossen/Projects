@@ -1,3 +1,5 @@
+#!python
+
 import requests, sys, json
 
 if len(sys.argv) != 2:
