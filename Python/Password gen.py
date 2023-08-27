@@ -1,6 +1,6 @@
 import string, random, pyperclip, sys
 
-data = open("Python/txt/plist", "a")
+data = open("Python/txt/plist.txt", "a")
 char = (string.ascii_letters + string.digits + "!@#$-_")
 
 while True:
