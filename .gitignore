@@ -7,5 +7,5 @@ password manager/__pycache__/decrypt.cpython-311.pyc
 password manager/__pycache__/encrypt.cpython-311.pyc
 password manager/__pycache__/pswdgen.cpython-311.pyc
 password manager/__pycache__/urlmail.cpython-311.pyc
-"password manager/filekey.key"
-"password manager/plist.txt"
+password manager/txt/filekey.key
+password manager/txt/plist.txt
