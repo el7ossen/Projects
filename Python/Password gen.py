@@ -1,6 +1,11 @@
 import string, random, pyperclip, sys
+from cryptography.fernet import Fernet
+from encrypt import enc
+from decrypt import dec
 
-data = open("Python/txt/plist.txt", "a")
+dec()
+
+data = open("./txt/plist.txt", "a")
 char = (string.ascii_letters + string.digits + "!@#$-_")
 
 while True:
@@ -45,3 +50,5 @@ print(
 
 pyperclip.copy(password)
 print("Password copied to clipboard.")
+
+enc()
