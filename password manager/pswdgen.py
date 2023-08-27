@@ -1,5 +1,3 @@
-import random, string, pyperclip
-
 def gen():
     while True:
         length = input("Length of you password: ")
