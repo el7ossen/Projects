@@ -35,7 +35,7 @@ def enc():
         encrypted_file.write(encrypted)
     encrypted_file.close()
 
-def gen():
+def len():
     while True:
         length = input("Length of you password: ")
         if length == "":
@@ -47,7 +47,7 @@ def gen():
         except:
             print("exc")
 
-    gen.length = length
+    len.length = length
 
 def urlmail():
     while True:
@@ -81,9 +81,9 @@ else:
     dec()
 
 urlmail()
-gen()
+len()
 
-password = "".join(random.choices(char, k=gen.length))
+password = "".join(random.choices(char, k=len.length))
 
 data.write(urlmail.url + "\n" + urlmail.email + "\n" + password + "\n\n")
 data.close()
