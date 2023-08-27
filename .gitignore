@@ -3,3 +3,9 @@ Python/txt/plist.txt
 Python/txt/filekey.key
 Python/__pycache__/decrypt.cpython-311.pyc
 Python/__pycache__/encrypt.cpython-311.pyc
+password manager/__pycache__/decrypt.cpython-311.pyc
+password manager/__pycache__/encrypt.cpython-311.pyc
+password manager/__pycache__/pswdgen.cpython-311.pyc
+password manager/__pycache__/urlmail.cpython-311.pyc
+password manager/filekey.key
+password manager/plist.txt
