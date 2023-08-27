@@ -1,10 +1,6 @@
 from cryptography.fernet import Fernet
 
 def enc():
-    key = Fernet.generate_key()
-
-    with open('filekey.key', 'wb') as filekey:
-        filekey.write(key)
 
     with open('filekey.key', 'rb') as filekey:
         key = filekey.read()
