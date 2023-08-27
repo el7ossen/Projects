@@ -44,4 +44,4 @@ print(
       )
 
 pyperclip.copy(password)
-print("Copied to clipboard.")
+print("Password copied to clipboard.")
