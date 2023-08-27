@@ -35,9 +35,7 @@ while True:
     except:
         print("exc")
 
-passw = random.choices(char, k=length)
-
-password = "".join(passw)
+password = "".join(random.choices(char, k=length))
 
 data.write(url + "\n" + email + "\n" + password + "\n\n")
 data.close()
