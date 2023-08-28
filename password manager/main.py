@@ -1,4 +1,4 @@
-import string, random, pyperclip, os.path
+import string, random, pyperclip, os.path, os, sys, tkinter
 from cryptography.fernet import Fernet
 
 path = os.path.abspath(os.path.dirname(__file__))
@@ -65,6 +65,24 @@ def urlmail():
 
     urlmail.url = url
     urlmail.email = email
+
+def pin():
+
+    i = 0
+    while i < 5:
+        pin = input("Please neter your pin: ")
+        if pin == "0000":
+            print("yes")
+            break
+        else:
+            i += 1
+            print("no")
+
+    if i == 5:
+        os.remove(path + "./plist.txt")
+        sys.exit()
+
+pin()
 
 data = open(path + "./plist.txt", "a")
 char = (string.ascii_letters + string.digits + "!@#$-_")
