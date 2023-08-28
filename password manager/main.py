@@ -1,4 +1,4 @@
-import string, random, pyperclip, os.path, os, sys, tkinter
+import string, random, pyperclip, os, sys
 from cryptography.fernet import Fernet
 
 path = os.path.abspath(os.path.dirname(__file__))
@@ -6,9 +6,13 @@ path = os.path.abspath(os.path.dirname(__file__))
 _ = open(path + "./plist.txt", "a")
 _.close()
 
+#Please add a cryptography.fernet.Fernet key
+key = ""
+#^^^^^^^
+
 def dec():
 
-    fernet = Fernet("98ynLvTdueiIo9oERYwLDrJc4HqzZwTh7ES1QO75iHg=")
+    fernet = Fernet(key)
 
     with open(path + "./plist.txt", "rb") as enc_file:
         encrypted = enc_file.read()
@@ -21,7 +25,7 @@ def dec():
 
 def enc():
 
-    fernet = Fernet("98ynLvTdueiIo9oERYwLDrJc4HqzZwTh7ES1QO75iHg=")
+    fernet = Fernet(key)
 
     with open(path + "./plist.txt", 'rb') as file:
         original = file.read()
@@ -70,13 +74,13 @@ def pin():
 
     i = 0
     while i < 5:
-        pin = input("Please neter your pin: ")
-        if pin == "0000":
-            print("yes")
+        pin = input("Please enter your pin: ")
+        if pin == "2040":
+            print("Access Granted!\n")
             break
         else:
             i += 1
-            print("no")
+            print("Access Denied!\n")
 
     if i == 5:
         os.remove(path + "./plist.txt")
@@ -84,32 +88,61 @@ def pin():
 
 pin()
 
-data = open(path + "./plist.txt", "a")
-char = (string.ascii_letters + string.digits + "!@#$-_")
+print("Choose an option,\n","1 Add password\n","2 See passwords\n","Option: ", end="")
+op = input()
 
-with open(path + "./plist.txt", "r") as test:
-    test = test.read()
+if op == "1":
 
-if test == "":
-    None
-else:
-    dec()
+    data = open(path + "./plist.txt", "a")
+    char = (string.ascii_letters + string.digits + "!@#$-_")
 
-urlmail()
-len()
+    with open(path + "./plist.txt", "r") as test:
+        test = test.read()
 
-password = "".join(random.choices(char, k=len.length))
+    if test == "":
+        None
+    else:
+        dec()
 
-data.write(urlmail.url + "\n" + urlmail.email + "\n" + password + "\n\n")
-data.close()
+    urlmail()
+    len()
 
-print(
-    "url: " + urlmail.url + "\n" +
-    "email: " + urlmail.email + "\n" +
-    "password: " + "****" + "\n" 
-      )
+    password = "".join(random.choices(char, k=len.length))
 
-pyperclip.copy(password)
-print("Password copied to clipboard.")
+    data.write(urlmail.url + "\n" + urlmail.email + "\n" + password + "\n\n")
+    data.close()
 
-enc()
+    print(
+        "url: " + urlmail.url + "\n" +
+        "email: " + urlmail.email + "\n" +
+        "password: " + "****" + "\n" 
+        )
+
+    pyperclip.copy(password)
+    print("Password copied to clipboard.")
+
+    enc()
+
+if op == "2":
+    with open(path + "./plist.txt", "r") as test:
+        test = test.read()
+
+    if test == "":
+        None
+    else:
+        dec()
+
+    with open(path + "./plist.txt", "r") as data:
+        read = data.read()
+        if read == "":
+            print("no data to read!")
+        else:
+            print(read)
+    
+    enc()
+
+    print("Press enter to exit ", end="")
+    if input() == "":
+        None
+
+sys.exit("Exiting...")
