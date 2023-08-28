@@ -1,19 +1,19 @@
 import string, random, pyperclip, sys
 from cryptography.fernet import Fernet
 
-_ = open("plist.txt", "a")
+_ = open("./plist.txt", "a")
 _.close()
 
 def dec():
 
     fernet = Fernet("98ynLvTdueiIo9oERYwLDrJc4HqzZwTh7ES1QO75iHg=")
 
-    with open("plist.txt", "rb") as enc_file:
+    with open("./plist.txt", "rb") as enc_file:
         encrypted = enc_file.read()
 
     decrypted = fernet.decrypt(encrypted)
 
-    with open("plist.txt", "wb") as dec_file:
+    with open("./plist.txt", "wb") as dec_file:
         dec_file.write(decrypted)
     dec_file.close()
 
@@ -21,12 +21,12 @@ def enc():
 
     fernet = Fernet("98ynLvTdueiIo9oERYwLDrJc4HqzZwTh7ES1QO75iHg=")
 
-    with open('plist.txt', 'rb') as file:
+    with open('./plist.txt', 'rb') as file:
         original = file.read()
 
     encrypted = fernet.encrypt(original)
 
-    with open('plist.txt', 'wb') as encrypted_file:
+    with open('./plist.txt', 'wb') as encrypted_file:
         encrypted_file.write(encrypted)
     encrypted_file.close()
 
@@ -64,10 +64,10 @@ def urlmail():
     urlmail.url = url
     urlmail.email = email
 
-data = open("plist.txt", "a")
+data = open("./plist.txt", "a")
 char = (string.ascii_letters + string.digits + "!@#$-_")
 
-with open("plist.txt", "r") as test:
+with open("./plist.txt", "r") as test:
     test = test.read()
 
 if test == "":
