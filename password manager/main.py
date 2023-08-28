@@ -34,7 +34,7 @@ def len():
     while True:
         length = input("Length of you password: ")
         if length == "":
-            length = 12
+            length = 20
             break
         try:
             length = int(length)
