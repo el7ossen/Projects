@@ -1,8 +1,8 @@
-import string, random, pyperclip, sys
+import string, random, pyperclip, os.path
 from cryptography.fernet import Fernet
 from pathlib import Path
 
-path = Path(__file__).parent
+path = os.path.abspath(os.path.dirname(__file__))
 
 _ = open(path / "./plist.txt", "a")
 _.close()
