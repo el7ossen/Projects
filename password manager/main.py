@@ -10,6 +10,9 @@ _.close()
 key = ""
 #^^^^^^^
 
+#Please add a pin
+p = ""
+#^^^^^^^
 def dec():
 
     fernet = Fernet(key)
@@ -75,7 +78,7 @@ def pin():
     i = 0
     while i < 5:
         pin = input("Please enter your pin: ")
-        if pin == "2040":
+        if pin == p:
             print("Access Granted!\n")
             break
         else:
