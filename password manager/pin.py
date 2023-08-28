@@ -1,4 +1,4 @@
-importos
+import os
 
 i = 0
 while i < 5:
