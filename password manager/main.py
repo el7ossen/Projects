@@ -1,4 +1,4 @@
-import string, random, pyperclip, os, sys
+import string, random, pyperclip, os, sys, getpass
 from cryptography.fernet import Fernet
 
 path = os.path.abspath(os.path.dirname(__file__))
@@ -77,7 +77,7 @@ def pin():
 
     i = 0
     while i < 5:
-        pin = input("Please enter your pin: ")
+        pin = getpass.getpass("Please enter your pin: ")
         if pin == p:
             print("Access Granted!\n")
             break
