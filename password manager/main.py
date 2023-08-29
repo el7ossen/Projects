@@ -7,7 +7,7 @@ _ = open(path + "./plist.txt", "a")
 _.close()
 
 #Please add a cryptography.fernet.Fernet key
-key = ""
+key = "98ynLvTdueiIo9oERYwLDrJc4HqzZwTh7ES1QO75iHg="
 #^^^^^^^
 
 #Please add a pin
@@ -91,10 +91,12 @@ def pin():
 
 pin()
 
-print("Choose an option,\n","1 Add password\n","2 See passwords\n","Option: ", end="")
+print("Choose an option,\n","1 Add password\n","2 See passwords\n","3 Decrypt\n","Option: ", end="")
 op = input()
 
 if op == "1":
+    urlmail()
+    len()
 
     data = open(path + "./plist.txt", "a")
     char = (string.ascii_letters + string.digits + "!@#$-_")
@@ -107,13 +109,12 @@ if op == "1":
     else:
         dec()
 
-    urlmail()
-    len()
-
     password = "".join(random.choices(char, k=len.length))
 
     data.write(urlmail.url + "\n" + urlmail.email + "\n" + password + "\n\n")
     data.close()
+
+    enc()
 
     print(
         "url: " + urlmail.url + "\n" +
@@ -122,9 +123,13 @@ if op == "1":
         )
 
     pyperclip.copy(password)
-    print("Password copied to clipboard.")
+    print("Password copied to clipboard. \n")
 
-    enc()
+    print("Press enter to exit", end="")
+    if input() == "":
+        None
+    else:
+        None
 
 if op == "2":
     with open(path + "./plist.txt", "r") as test:
@@ -144,8 +149,18 @@ if op == "2":
     
     enc()
 
-    print("Press enter to exit ", end="")
+    print("Press enter to exit", end="")
     if input() == "":
         None
+    else:
+        None
 
+if op == "3":
+    dec()
+    print("Print enter to exit", end="")
+    if input() == "":
+        None
+    else:
+        None
+    enc()
 sys.exit("Exiting...")
