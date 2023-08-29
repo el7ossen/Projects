@@ -7,7 +7,7 @@ _ = open(path + "./plist.txt", "a")
 _.close()
 
 #Please add a cryptography.fernet.Fernet key
-key = "98ynLvTdueiIo9oERYwLDrJc4HqzZwTh7ES1QO75iHg="
+key = ""
 #^^^^^^^
 
 #Please add a pin
