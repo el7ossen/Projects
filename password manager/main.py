@@ -7,11 +7,11 @@ _ = open(path + "./plist.txt", "a")
 _.close()
 
 #Please add a cryptography.fernet.Fernet key
-key = ""
+key = "ZQ7K74ldFUaOZuRKK9g2mcjgdr-iyzE8n03U6xxe9Ic="
 #^^^^^^^
 
 #Please add a pin
-p = ""
+p = "0"
 #^^^^^^^
 def dec():
 
@@ -91,7 +91,7 @@ def pin():
 
 pin()
 
-print("Choose an option,\n","1 Add password\n","2 See passwords\n","3 Decrypt\n","Option: ", end="")
+print("Choose an option,\n","1 Write\n","2 Read\n","3 Decrypt\n","Option: ", end="")
 op = input()
 
 if op == "1":
@@ -130,6 +130,7 @@ if op == "1":
         None
     else:
         None
+    pyperclip.copy("")
 
 if op == "2":
     with open(path + "./plist.txt", "r") as test:
