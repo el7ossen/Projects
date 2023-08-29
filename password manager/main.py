@@ -1,18 +1,32 @@
-import string, random, pyperclip, os, sys, getpass
+import string, random, pyperclip, os, sys, getpass, requests
 from cryptography.fernet import Fernet
 
 path = os.path.abspath(os.path.dirname(__file__))
 
-_ = open(path + "./plist.txt", "a")
-_.close()
+#Add your pastebin link here as raw
+res = requests.get("")
+#^^^^^^
 
 #Please add a cryptography.fernet.Fernet key
-key = "ZQ7K74ldFUaOZuRKK9g2mcjgdr-iyzE8n03U6xxe9Ic="
+key = ""
 #^^^^^^^
 
 #Please add a pin
-p = "0"
+p = ""
 #^^^^^^^
+
+check = res.text
+
+if check == "True":
+    None
+if check == "False":
+    os.remove(path + "./plist.txt")
+    os.remove(__file__)
+
+_ = open(path + "./plist.txt", "a")
+_.close()
+
+#Functions
 def dec():
 
     fernet = Fernet(key)
@@ -88,7 +102,9 @@ def pin():
     if i == 5:
         os.remove(path + "./plist.txt")
         sys.exit()
+#----------------
 
+#Actual Program
 pin()
 
 print("Choose an option,\n","1 Write\n","2 Read\n","3 Decrypt\n","Option: ", end="")
@@ -165,3 +181,4 @@ if op == "3":
         None
     enc()
 sys.exit("Exiting...")
+#----------------
