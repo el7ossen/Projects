@@ -15,11 +15,7 @@ key = ""
 p = ""
 #^^^^^^^
 
-check = res.text
-
-if check == "True":
-    None
-if check == "False":
+if res.text == "False":
     os.remove(path + "./plist.txt")
     os.remove(__file__)
 
