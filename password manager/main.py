@@ -1,7 +1,6 @@
-import string, random, pyperclip, os, time 
+import string, random, pyperclip, os
 import sys, getpass, requests, array
 from cryptography.fernet import Fernet
-from colorama import Fore
 
 path = os.path.abspath(os.path.dirname(__file__))
 
@@ -94,7 +93,7 @@ def pin():
 
     i = 0
     while i < 5:
-        pin = getpass.getpass(Fore.GREEN + "Please enter your pin: ")
+        pin = getpass.getpass("Please enter your pin: ")
         if pin == p:
             print("Access Granted!\n")
             break
@@ -146,7 +145,7 @@ def gen():
 #Actual Program
 pin()
 
-print("Choose an option,\n","1 Write\n","2 Read\n","3 Decrypt\n","Option: ", end="")
+print("Choose an option,\n","1 Write\n","2 Read\n","3 Decrypt\n","4 Encrypt\n","Option: ", end="")
 op = input()
 
 if op == "1":
@@ -221,5 +220,12 @@ if op == "3":
     else:
         None
     enc()
+if op == "4":
+    enc()
+    print("Print enter to exit", end="")
+    if input() == "":
+        None
+    else:
+        None
 sys.exit("Exiting...")
 #----------------
