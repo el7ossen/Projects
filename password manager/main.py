@@ -1,5 +1,7 @@
-import string, random, pyperclip, os, sys, getpass, requests, array
+import string, random, pyperclip, os, time 
+import sys, getpass, requests, array
 from cryptography.fernet import Fernet
+from colorama import Fore
 
 path = os.path.abspath(os.path.dirname(__file__))
 
@@ -8,7 +10,7 @@ res = requests.get("https://pastebin.com/raw/1q2Mv9h")
 #^^^^^^
 
 #Please add a cryptography.fernet.Fernet key
-key = b''
+key = b'-GsGZVha66LuEIsUS9QhRIYZ2TL_GVaHCB63oCUXWLc='
 #^^^^^^^
 
 #Please add a pin
@@ -58,7 +60,7 @@ def len():
         try:
             length = int(length)
         except:
-            print("input has to be an integer!")
+            print("input has to be an integer!\n")
             continue
         if length < 5:
             print("Password can't be less than 5 characters long!\n")
@@ -92,7 +94,7 @@ def pin():
 
     i = 0
     while i < 5:
-        pin = getpass.getpass("Please enter your pin: ")
+        pin = getpass.getpass(Fore.GREEN + "Please enter your pin: ")
         if pin == p:
             print("Access Granted!\n")
             break
@@ -118,8 +120,7 @@ def gen():
                         'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y',
                         'Z']
     
-    SYMBOLS = ['@', '#', '$', '%', '=', ':', '?', '.', '/', '|', '~', '>',
-            '*', '(', ')', '<']
+    SYMBOLS = ['!', '$', '#', '/', '-', '_', '?']
     
     COMBINED_LIST = DIGITS + UPCASE_CHARACTERS + LOCASE_CHARACTERS + SYMBOLS
 
@@ -130,10 +131,10 @@ def gen():
 
     temp_pass = rand_digit + rand_upper + rand_lower + rand_symbol
 
-    for x in range(MAX_LEN - 4):
-        temp_pass = temp_pass + random.choice(COMBINED_LIST)
-        temp_pass_list = array.array('u', temp_pass)
-        random.shuffle(temp_pass_list)
+
+    temp_pass = temp_pass + str("".join(random.choices(COMBINED_LIST, k=len.length - 4)))
+    temp_pass_list = array.array('u', temp_pass)
+    random.shuffle(temp_pass_list)
 
     password = ""
     for x in temp_pass_list:
@@ -197,7 +198,7 @@ if op == "2":
     with open(path + "./plist.txt", "r") as data:
         read = data.read()
         if read == "":
-            print("no data to read!")
+            print("no data to read!\n")
         else:
             print(read)
     
