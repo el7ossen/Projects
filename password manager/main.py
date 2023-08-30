@@ -10,7 +10,7 @@ res = requests.get("")
 #^^^^^^
 
 #Please add a cryptography.fernet.Fernet key
-key = 
+key = b''
 #^^^^^^^
 
 #Please add a pin
