@@ -2,27 +2,6 @@ import random, pyperclip, os
 import sys, getpass, requests, array
 from cryptography.fernet import Fernet
 
-path = os.path.abspath(os.path.dirname(__file__))
-
-#Add your raw pastebin link here
-res = requests.get("")
-#^^^^^^
-
-#Please add a cryptography.fernet.Fernet key
-key = b''
-#^^^^^^^
-
-#Please add a pin
-p = ""
-#^^^^^^^
-
-if res.text == "False":
-    os.remove(path + "./plist.txt")
-    os.remove(__file__)
-
-_ = open(path + "./plist.txt", "a")
-_.close()
-
 #Functions
 def dec():
 
@@ -69,25 +48,25 @@ def len():
 
     len.length = length
 
-def urlmail():
+def urlusr():
     while True:
-        url = str(input("What site is this password for? "))
+        url = str(input("Website: "))
         if url == "":
-            print("Please input a url\n")
+            print("Please input a website\n")
             continue
         else:
             break
 
     while True:
-        email = str(input("What E-mail are you using? "))
+        email = str(input("User: "))
         if email == "":
-            print("Please input an email\n")
+            print("Please input a userid\n")
             continue
         else:
             break
 
-    urlmail.url = url
-    urlmail.email = email
+    urlusr.url = url
+    urlusr.email = email
 
 def pin():
 
@@ -142,6 +121,27 @@ def gen():
     gen.password = password
 #----------------
 
+path = os.path.abspath(os.path.dirname(__file__))
+
+#Add your raw pastebin link here
+res = requests.get("https://pastebin.com/raw/1q2Mv9hn")
+#^^^^^^
+
+#Please add a cryptography.fernet.Fernet key
+key = b'Q5QddLc22YhhRQmHX06u7SDOhhEeND819sgRb42JRus='
+#^^^^^^^
+
+#Please add a pin
+p = ""
+#^^^^^^^
+
+if res.text == "False":
+    os.remove(path + "./plist.txt")
+
+_ = open(path + "./plist.txt", "a")
+_.close()
+
+
 #Actual Program
 pin()
 
@@ -149,7 +149,7 @@ print("Choose an option,\n","1 Write\n","2 Read\n","3 Decrypt\n","4 Encrypt\n","
 op = input()
 
 if op == "1":
-    urlmail()
+    urlusr()
     len()
 
     data = open(path + "./plist.txt", "a")
@@ -164,15 +164,15 @@ if op == "1":
 
     gen()
 
-    data.write(urlmail.url + "\n" + urlmail.email + "\n" + gen.password + "\n\n")
+    data.write(urlusr.url + "\n" + urlusr.email + "\n" + gen.password + "\n\n")
     data.close()
 
     enc()
 
     print(
-        "url: " + urlmail.url + "\n" +
-        "email: " + urlmail.email + "\n" +
-        "password: " + "****" + "\n" 
+        "url: " + urlusr.url + "\n" +
+        "email: " + urlusr.email + "\n" +
+        "password: " + ("#" * len.length) + "\n" 
         )
 
     pyperclip.copy(gen.password)
