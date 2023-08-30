@@ -1,3 +1,5 @@
 from cryptography.fernet import Fernet
+import pyperclip
 
-print(Fernet.generate_key())
+key = str(Fernet.generate_key())
+pyperclip.copy(key)
