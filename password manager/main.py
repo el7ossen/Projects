@@ -1,14 +1,14 @@
-import string, random, pyperclip, os, sys, getpass, requests
+import string, random, pyperclip, os, sys, getpass, requests, array
 from cryptography.fernet import Fernet
 
 path = os.path.abspath(os.path.dirname(__file__))
 
-#Add your pastebin link here as raw
-res = requests.get("")
+#Add your raw pastebin link here
+res = requests.get("https://pastebin.com/raw/1q2Mv9h")
 #^^^^^^
 
 #Please add a cryptography.fernet.Fernet key
-key = ""
+key = b''
 #^^^^^^^
 
 #Please add a pin
@@ -57,9 +57,14 @@ def len():
             break
         try:
             length = int(length)
-            break
         except:
-            print("exc")
+            print("input has to be an integer!")
+            continue
+        if length < 5:
+            print("Password can't be less than 5 characters long!\n")
+            continue
+        if length >= 5:
+            break
 
     len.length = length
 
@@ -98,6 +103,43 @@ def pin():
     if i == 5:
         os.remove(path + "./plist.txt")
         sys.exit()
+
+def gen():
+    MAX_LEN = len.length
+
+    DIGITS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'] 
+    LOCASE_CHARACTERS = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
+                        'i', 'j', 'k', 'm', 'n', 'o', 'p', 'q',
+                        'r', 's', 't', 'u', 'v', 'w', 'x', 'y',
+                        'z']
+    
+    UPCASE_CHARACTERS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
+                        'I', 'J', 'K', 'M', 'N', 'O', 'P', 'Q',
+                        'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y',
+                        'Z']
+    
+    SYMBOLS = ['@', '#', '$', '%', '=', ':', '?', '.', '/', '|', '~', '>',
+            '*', '(', ')', '<']
+    
+    COMBINED_LIST = DIGITS + UPCASE_CHARACTERS + LOCASE_CHARACTERS + SYMBOLS
+
+    rand_digit = random.choice(DIGITS)
+    rand_upper = random.choice(UPCASE_CHARACTERS)
+    rand_lower = random.choice(LOCASE_CHARACTERS)
+    rand_symbol = random.choice(SYMBOLS)
+
+    temp_pass = rand_digit + rand_upper + rand_lower + rand_symbol
+
+    for x in range(MAX_LEN - 4):
+        temp_pass = temp_pass + random.choice(COMBINED_LIST)
+        temp_pass_list = array.array('u', temp_pass)
+        random.shuffle(temp_pass_list)
+
+    password = ""
+    for x in temp_pass_list:
+            password = password + x
+    
+    gen.password = password
 #----------------
 
 #Actual Program
@@ -111,7 +153,6 @@ if op == "1":
     len()
 
     data = open(path + "./plist.txt", "a")
-    char = (string.ascii_letters + string.digits + "!@#$-_")
 
     with open(path + "./plist.txt", "r") as test:
         test = test.read()
@@ -121,9 +162,9 @@ if op == "1":
     else:
         dec()
 
-    password = "".join(random.choices(char, k=len.length))
+    gen()
 
-    data.write(urlmail.url + "\n" + urlmail.email + "\n" + password + "\n\n")
+    data.write(urlmail.url + "\n" + urlmail.email + "\n" + gen.password + "\n\n")
     data.close()
 
     enc()
@@ -134,7 +175,7 @@ if op == "1":
         "password: " + "****" + "\n" 
         )
 
-    pyperclip.copy(password)
+    pyperclip.copy(gen.password)
     print("Password copied to clipboard. \n")
 
     print("Press enter to exit", end="")
@@ -160,7 +201,10 @@ if op == "2":
         else:
             print(read)
     
-    enc()
+    if test == "":
+        None
+    else:    
+        enc()
 
     print("Press enter to exit", end="")
     if input() == "":
