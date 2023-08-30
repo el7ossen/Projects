@@ -1,4 +1,4 @@
-import string, random, pyperclip, os
+import random, pyperclip, os
 import sys, getpass, requests, array
 from cryptography.fernet import Fernet
 
