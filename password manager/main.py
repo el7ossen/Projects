@@ -6,11 +6,11 @@ from colorama import Fore
 path = os.path.abspath(os.path.dirname(__file__))
 
 #Add your raw pastebin link here
-res = requests.get("https://pastebin.com/raw/1q2Mv9h")
+res = requests.get("")
 #^^^^^^
 
 #Please add a cryptography.fernet.Fernet key
-key = b'-GsGZVha66LuEIsUS9QhRIYZ2TL_GVaHCB63oCUXWLc='
+key = 
 #^^^^^^^
 
 #Please add a pin
