@@ -2,17 +2,37 @@ import random, pyperclip, os
 import sys, getpass, requests, array
 from cryptography.fernet import Fernet
 
+path = os.path.abspath(os.path.dirname(__file__))
+
+#Add your raw pastebin link here
+res = requests.get("https://pastebin.com/raw/1q2Mv9hn")
+#^^^^^^
+
+#Please add a cryptography.fernet.Fernet key
+key = b'Q5QddLc22YhhRQmHX06u7SDOhhEeND819sgRb42JRus='
+#^^^^^^^
+
+#Please add a pin
+p = ""
+#^^^^^^^
+
+if res.text == "False":
+    os.remove(path + "./plist.txt")
+
+_ = open(path + "/plist.txt", "a")
+_.close()
+
 #Functions
 def dec():
 
     fernet = Fernet(key)
 
-    with open(path + "./plist.txt", "rb") as enc_file:
+    with open(path + "/plist.txt", "rb") as enc_file:
         encrypted = enc_file.read()
 
     decrypted = fernet.decrypt(encrypted)
 
-    with open(path + "./plist.txt", "wb") as dec_file:
+    with open(path + "/plist.txt", "wb") as dec_file:
         dec_file.write(decrypted)
     dec_file.close()
 
@@ -20,12 +40,12 @@ def enc():
 
     fernet = Fernet(key)
 
-    with open(path + "./plist.txt", 'rb') as file:
+    with open(path + "/plist.txt", 'rb') as file:
         original = file.read()
 
     encrypted = fernet.encrypt(original)
 
-    with open(path + "./plist.txt", 'wb') as encrypted_file:
+    with open(path + "/plist.txt", 'wb') as encrypted_file:
         encrypted_file.write(encrypted)
     encrypted_file.close()
 
@@ -121,25 +141,7 @@ def gen():
     gen.password = password
 #----------------
 
-path = os.path.abspath(os.path.dirname(__file__))
 
-#Add your raw pastebin link here
-res = requests.get("https://pastebin.com/raw/1q2Mv9hn")
-#^^^^^^
-
-#Please add a cryptography.fernet.Fernet key
-key = b'Q5QddLc22YhhRQmHX06u7SDOhhEeND819sgRb42JRus='
-#^^^^^^^
-
-#Please add a pin
-p = ""
-#^^^^^^^
-
-if res.text == "False":
-    os.remove(path + "./plist.txt")
-
-_ = open(path + "./plist.txt", "a")
-_.close()
 
 
 #Actual Program
@@ -152,9 +154,9 @@ if op == "1":
     urlusr()
     len()
 
-    data = open(path + "./plist.txt", "a")
+    data = open(path + "/plist.txt", "a")
 
-    with open(path + "./plist.txt", "r") as test:
+    with open(path + "/plist.txt", "r") as test:
         test = test.read()
 
     if test == "":
@@ -186,7 +188,7 @@ if op == "1":
     pyperclip.copy("")
 
 if op == "2":
-    with open(path + "./plist.txt", "r") as test:
+    with open(path + "/plist.txt", "r") as test:
         test = test.read()
 
     if test == "":
@@ -194,7 +196,7 @@ if op == "2":
     else:
         dec()
 
-    with open(path + "./plist.txt", "r") as data:
+    with open(path + "/plist.txt", "r") as data:
         read = data.read()
         if read == "":
             print("no data to read!\n")
