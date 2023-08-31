@@ -229,5 +229,5 @@ if op == "4":
         None
     else:
         None
-sys.exit()
+sys.exit("exiting...")
 #----------------
