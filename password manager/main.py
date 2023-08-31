@@ -4,24 +4,6 @@ from cryptography.fernet import Fernet
 
 path = os.path.abspath(os.path.dirname(__file__))
 
-#Add your raw pastebin link here
-res = requests.get("https://pastebin.com/raw/1q2Mv9hn")
-#^^^^^^
-
-#Please add a cryptography.fernet.Fernet key
-key = b'Q5QddLc22YhhRQmHX06u7SDOhhEeND819sgRb42JRus='
-#^^^^^^^
-
-#Please add a pin
-p = ""
-#^^^^^^^
-
-if res.text == "False":
-    os.remove(path + "./plist.txt")
-
-_ = open(path + "/plist.txt", "a")
-_.close()
-
 #Functions
 def dec():
 
@@ -141,8 +123,23 @@ def gen():
     gen.password = password
 #----------------
 
+#Add your raw pastebin link here
+res = requests.get("https://pastebin.com/raw/1q2Mv9hn")
+#^^^^^^
 
+#Please add a cryptography.fernet.Fernet key
+key = b'Q5QddLc22YhhRQmHX06u7SDOhhEeND819sgRb42JRus='
+#^^^^^^^
 
+#Please add a pin
+p = ""
+#^^^^^^^
+
+if res.text == "False":
+    os.remove(path + "./plist.txt")
+
+_ = open(path + "/plist.txt", "a")
+_.close()
 
 #Actual Program
 pin()
@@ -229,5 +226,5 @@ if op == "4":
         None
     else:
         None
-sys.exit()
+sys.exit("exiting...")
 #----------------
