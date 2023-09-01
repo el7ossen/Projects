@@ -4,7 +4,7 @@ from cryptography.fernet import Fernet
 
 path = os.path.abspath(os.path.dirname(__file__))
 
-#Functions
+#Functionsi
 def dec():
 
     fernet = Fernet(key)
