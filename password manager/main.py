@@ -132,7 +132,7 @@ key = b'Q5QddLc22YhhRQmHX06u7SDOhhEeND819sgRb42JRus='
 #^^^^^^^
 
 #Please add a pin
-p = "0"
+p = ""
 #^^^^^^^
 
 if res.text == "False":
