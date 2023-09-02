@@ -1,7 +1,21 @@
-import os, keyboard, time
+import AppOpener, keyboard, time
 
-os.system("google-chrome")
+AppOpener.open("google chrome", output=False)
+time.sleep(0.2)
+keyboard.press_and_release("Tab")
+time.sleep(0.2)
+keyboard.press_and_release("Tab")
+time.sleep(0.2)
+keyboard.press_and_release("Tab")
+time.sleep(0.2)
+keyboard.press_and_release("Tab")
+time.sleep(0.2)
+keyboard.press_and_release("Tab")
+time.sleep(0.2)
+keyboard.press_and_release("Enter")
 
-time.sleep(1)
-
-keyboard.write("youtube.com")
+AppOpener.open("Visual Studio Code, Spotify, WhatsApp", output=False)
+time.sleep(0.2)
+keyboard.press_and_release("left windows + Left")
+time.sleep(0.2)
+keyboard.press_and_release("Esc")
