@@ -7,12 +7,10 @@ path = os.path.abspath(os.path.dirname(__file__))
 #Functionsi
 def dec():
 
-    fernet = Fernet(key)
-
     with open(path + "/plist.txt", "rb") as enc_file:
         encrypted = enc_file.read()
 
-    decrypted = fernet.decrypt(encrypted)
+    decrypted = Fernet(key).decrypt(encrypted)
 
     with open(path + "/plist.txt", "wb") as dec_file:
         dec_file.write(decrypted)
@@ -20,12 +18,10 @@ def dec():
 
 def enc():
 
-    fernet = Fernet(key)
-
     with open(path + "/plist.txt", 'rb') as file:
         original = file.read()
 
-    encrypted = fernet.encrypt(original)
+    encrypted = Fernet(key).encrypt(original)
 
     with open(path + "/plist.txt", 'wb') as encrypted_file:
         encrypted_file.write(encrypted)
