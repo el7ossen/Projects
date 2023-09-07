@@ -10,3 +10,7 @@ password manager/__pycache__/urlmail.cpython-311.pyc
 password manager/txt/filekey.key
 password manager/txt/plist.txt
 password manager/plist.txt
+.vscode/extensions.json
+.vscode
+password manager/file.txt
+.vscode/extensions.json
