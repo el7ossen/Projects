@@ -1,8 +1,7 @@
 import cryptography
 from cryptography.fernet import Fernet
 
-file = open("file.txt", "a")
-
+file = open("key.key", "w")
 key = str(Fernet.generate_key())
-file.(key)
+file.write(key)
 print(key)
