@@ -1,75 +1,57 @@
 import math, sys, time
 from decimal import Decimal as dec
 
+K = dec(9e+9)
+
 # functions ------------------
 
+def var(x):
+    while True:
+        y = input(f"{x}=")
+        if y == "":
+            break
+        try:
+            y = dec(y)
+            break
+        except:
+            print("Please input a number")
+            continue
+    var.y = y
 
 def one():
     n = 0
     while True:
         print("\nif not available press Enter\n")
-        while True:
-            F = input("F=")
-            if F == "":
-                n += 1
-                break
-            try:
-                F = dec(F)
-                break
-            except:
-                print("Please input a number!")
-                continue
-        while True:
-            qA = input("qᴀ=")
-            if qA == "":
-                n += 1
-                break
-            try:
-                qA = dec(qA)
-                break
-            except:
-                print("Please input a number!")
-                continue
-        while True:
-            qB = input("qʙ=")
-            if qB == "":
-                n += 1
-                break
-            try:
-                qB = dec(qB)
-                break
-            except:
-                print("Please input a number!")
-                continue
-        while True:
-            r = input("r=")
-            if r == "":
-                n += 1
-                break
-            try:
-                r = dec(r)
-                break
-            except:
-                print("Please input a number!")
-                continue
+        var("F")
+        F = var.y
+        if var.y == "": n += 1 
+        var("qA")
+        qA = var.y
+        if var.y == "": n += 1
+        var("qB")
+        qB = var.y
+        if var.y == "": n += 1
+        var("r")
+        r = var.y
+        if var.y == "": n += 1
         if n > 1:
             print("Insuffecient Information!")
             break
         elif F == "":
-            F = (9000000000 * qA * qB) / (r * r)
-            print("%.3f" % F, "N")
+            F = (K * qA * qB) / (r * r)
+            print("%.3E" % F, "N")
             break
         elif qA == "":
-            qA = (F * r * r) / (9000000000 * qB)
-            print("%.3f" % qA, "C")
+            qA = (F * r * r) / (K * qB)
+            print("%.3E" % qA, "C")
             break
         elif qB == "":
-            qB = (F * r * r) / (9000000000 * qA)
-            print("%.3f" % qB, "C")
+            qB = (F * r * r) / (K * qA)
+            print("%.3E" % qB, "C")
             break
         elif r == "":
-            r = math.sqrt((qA * qB * 9000000000) / (F))
-            print("%.3f" % r, "m")
+            r = math.sqrt((qA * qB * K) / (F))
+            print("%.3E" % r, "m")
             break
         else:
             print("you've answered it already")
