@@ -2,6 +2,8 @@ import math, sys, time
 from decimal import Decimal as dec
 
 # functions ------------------
+
+
 def one():
     n = 0
     while True:
@@ -304,7 +306,7 @@ def five():
         else:
             print("you've already solved it")
             break
-#-----------------------
+
 
 while True:
     print(
