@@ -2,7 +2,6 @@ import math, sys, time
 from decimal import Decimal as dec
 
 # functions ------------------
-
 def one():
     n = 0
     while True:
@@ -74,6 +73,7 @@ def one():
             print("you've answered it already")
             break
 
+
 def two():
     n = 0
     while True:
@@ -116,20 +116,21 @@ def two():
             print("Insufficient Information!")
             break
         elif E == "":
-            E = F/q
+            E = F / q
             print("%.3f" % E, "N/C")
             break
         elif F == "":
-            F = E*q
+            F = E * q
             print("%.3f" % F, "N")
             break
         elif q == "":
-            q = F/E
+            q = F / E
             print("%.3f" % q, "C")
             break
         else:
             print("you've already solved it")
             break
+
 
 def three():
     n = 0
@@ -173,20 +174,21 @@ def three():
             print("Insufficient information!")
             break
         elif V == "":
-            V = W/q
+            V = W / q
             print("%.3f" % V, "V")
             break
         elif W == "":
-            W = V*q
+            W = V * q
             print("%.3f" % W, "J")
             break
         elif q == "":
-            q = W/V
+            q = W / V
             print("%.3f" % q, "C")
             break
         else:
             print("you've already solved it")
             break
+
 
 def four():
     n = 0
@@ -230,20 +232,21 @@ def four():
             print("Insufficient information")
             break
         elif V == "":
-            V = E*d
+            V = E * d
             print("%.3f" % V, "V")
             break
         elif E == "":
-            E = V/d
+            E = V / d
             print("%.3f" % E, "N/C")
             break
         elif d == "":
-            d = V/E
+            d = V / E
             print("%.3f" % d, "m")
             break
         else:
             print("you've already solved it")
             break
+
 
 def five():
     n = 0
@@ -287,31 +290,33 @@ def five():
             print("Insufficient information!")
             break
         elif C == "":
-            C = q/V
+            C = q / V
             print("%.3f" % C, "F")
             break
         elif q == "":
-            q = C*V
+            q = C * V
             print("%.3f" % q, "C")
             break
         elif V == "":
-            V = q/C
+            V = q / C
             print("%.3f" % V, "V")
             break
         else:
             print("you've already solved it")
             break
+#-----------------------
 
 while True:
     print(
-        "Please choose an option:\n"
+        "\nPlease choose an option:\n"
         "1. F = K*qᴀ*qʙ/r²\n"
         "2. E = F/q\n"
         "3. ΔV = W/q\n"
         "4. ΔV = Ed\n"
         "5. C = q/ΔV\n"
         "6. exit\n"
-        "Option:", end=""
+        "Option:",
+        end="",
     )
 
     op = input()
@@ -328,18 +333,18 @@ while True:
         five()
     elif op == "6":
         print("exiting...")
-        time.sleep(1)
-        sys.exit("done")
+        time.sleep(0.125)
+        sys.exit()
     else:
-        print("That is not an option")
+        print("\nThat is not an option!")
         continue
-    con = input("Would you like to continue? y/n ")
-    
-    if con == "y" or "yes":
+    con = str(input("Would you like to continue? y/n "))
+
+    if con == "y" or con == "yes":
         continue
-    elif con == "n" or "no":
+    elif con == "n" or con == "no":
         print("exiting...")
-        time.sleep(1)
-        sys.exit("done")
+        time.sleep(0.125)
+        sys.exit()
     else:
         sys.exit("too bad lol")
