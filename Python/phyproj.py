@@ -1,9 +1,8 @@
-import math, sys, time
+from sys import exit
 from decimal import Decimal as dec
+from math import sqrt
 
 K = dec(9e+9)
-
-# functions ------------------
 
 def var(x):
     while True:
@@ -24,16 +23,20 @@ def one():
         print("\nif not available press Enter\n")
         var("F")
         F = var.y
-        if var.y == "": n += 1 
+        if var.y == "": n += 1
+
         var("qA")
         qA = var.y
         if var.y == "": n += 1
+        
         var("qB")
         qB = var.y
         if var.y == "": n += 1
+        
         var("r")
         r = var.y
         if var.y == "": n += 1
+        
         if n > 1:
             print("Insuffecient Information!")
             break
@@ -50,110 +53,66 @@ def one():
             print("%.3E" % qB, "C")
             break
         elif r == "":
-            r = math.sqrt((qA * qB * K) / (F))
+            r = sqrt((qA * qB * K) / (F))
             print("%.3E" % r, "m")
             break
         else:
             print("you've answered it already")
             break
 
-
 def two():
     n = 0
     while True:
         print("\nif not available press Enter\n")
 
-        while True:
-            E = input("E=")
-            if E == "":
-                n += 1
-                break
-            try:
-                E = dec(E)
-                break
-            except:
-                print("Please input a number!")
-                continue
-        while True:
-            F = input("F=")
-            if F == "":
-                n += 1
-                break
-            try:
-                F = dec(F)
-                break
-            except:
-                print("Please input a number!")
-                continue
-        while True:
-            q = input("q=")
-            if q == "":
-                n += 1
-                break
-            try:
-                q = dec(q)
-                break
-            except:
-                print("Please input a number!")
-                continue
+        var("E")
+        E = var.y
+        if var.y == "": n += 1
+
+        var("F")
+        F = var.y
+        if var.y == "": n += 1
+        
+        var("q")
+        q = var.y
+        if var.y == "": n += 1
+        
         if n > 1:
             print("Insufficient Information!")
             break
         elif E == "":
             E = F / q
-            print("%.3f" % E, "N/C")
+            print("%.3E" % E, "N/C")
             break
         elif F == "":
             F = E * q
-            print("%.3f" % F, "N")
+            print("%.3E" % F, "N")
             break
         elif q == "":
             q = F / E
-            print("%.3f" % q, "C")
+            print("%.3E" % q, "C")
             break
         else:
             print("you've already solved it")
             break
-
 
 def three():
     n = 0
     while True:
         print("\nIf not available press enter\n")
 
-        while True:
-            V = input("V=")
-            if V == "":
-                n += 1
-                break
-            try:
-                V = dec(V)
-                break
-            except:
-                print("Please input a number!")
-                continue
-        while True:
-            W = input("W=")
-            if W == "":
-                n += 1
-                break
-            try:
-                W = dec(W)
-                break
-            except:
-                print("Please input a number!")
-                continue
-        while True:
-            q = input("q=")
-            if q == "":
-                n += 1
-                break
-            try:
-                q = dec(q)
-                break
-            except:
-                print("Please input a number!")
-                continue
+        var("V")
+        V = var.y
+        if var.y == "": n += 1
+
+        var("W")
+        W = var.y
+        if var.y == "": n += 1
+
+        var("q")
+        q = var.y
+        if var.y == "": n += 1
+
         if n > 1:
             print("Insufficient information!")
             break
@@ -173,45 +132,23 @@ def three():
             print("you've already solved it")
             break
 
-
 def four():
     n = 0
     while True:
         print("\nIf not available press Enter")
 
-        while True:
-            V = input("V=")
-            if V == "":
-                n += 1
-                break
-            try:
-                V = dec(V)
-                break
-            except:
-                print("Please input a number!")
-                continue
-        while True:
-            E = input("E=")
-            if E == "":
-                n += 1
-                break
-            try:
-                E = dec(E)
-                break
-            except:
-                print("Please input a number!")
-                continue
-        while True:
-            d = input("d=")
-            if d == "":
-                n += 1
-                break
-            try:
-                d = dec(d)
-                break
-            except:
-                print("Please input a number!")
-                continue
+        var("V")
+        V = var.y
+        if var.y == "": n += 1
+
+        var("E")
+        E = var.y
+        if var.y == "": n += 1
+
+        var("d")
+        d = var.y
+        if var.y == "": n += 1
+
         if n > 1:
             print("Insufficient information")
             break
@@ -231,45 +168,23 @@ def four():
             print("you've already solved it")
             break
 
-
 def five():
     n = 0
     while True:
         print("\nIf not available press Enter")
 
-        while True:
-            C = input("C=")
-            if C == "":
-                n += 1
-                break
-            try:
-                C = dec(C)
-                break
-            except:
-                print("Please input a number!")
-                continue
-        while True:
-            q = input("q=")
-            if q == "":
-                n += 1
-                break
-            try:
-                q = dec(q)
-                break
-            except:
-                print("Please input a number!")
-                continue
-        while True:
-            V = input("V=")
-            if V == "":
-                n += 1
-                break
-            try:
-                V = dec(V)
-                break
-            except:
-                print("Please input a number!")
-                continue
+        var("C")
+        C = var.y
+        if var.y == "": n += 1
+
+        var("q")
+        q = var.y
+        if var.y == "": n += 1
+
+        var("V")
+        V = var.y
+        if var.y == "": n += 1
+
         if n > 1:
             print("Insufficient information!")
             break
@@ -289,9 +204,8 @@ def five():
             print("you've already solved it")
             break
 
-
 while True:
-    print(
+    op = print(
         "\nPlease choose an option:\n"
         "1. F = K*qᴀ*qʙ/r²\n"
         "2. E = F/q\n"
@@ -316,9 +230,7 @@ while True:
     elif op == "5":
         five()
     elif op == "6":
-        print("exiting...")
-        time.sleep(0.125)
-        sys.exit()
+        exit("exiting...")
     else:
         print("\nThat is not an option!")
         continue
@@ -327,8 +239,6 @@ while True:
     if con == "y" or con == "yes":
         continue
     elif con == "n" or con == "no":
-        print("exiting...")
-        time.sleep(0.125)
-        sys.exit()
+        exit("exiting...")
     else:
-        sys.exit("too bad lol")
+        exit("too bad lol")
