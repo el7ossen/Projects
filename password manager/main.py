@@ -4,7 +4,7 @@ from cryptography.fernet import Fernet
 
 path = os.path.abspath(os.path.dirname(__file__))
 
-#Functionsi
+#Functions
 def dec():
 
     with open(path + "/plist.txt", "rb") as enc_file:
