@@ -118,15 +118,15 @@ def three():
             break
         elif V == "":
             V = W / q
-            print("%.3f" % V, "V")
+            print("%.3E" % V, "V")
             break
         elif W == "":
             W = V * q
-            print("%.3f" % W, "J")
+            print("%.3E" % W, "J")
             break
         elif q == "":
             q = W / V
-            print("%.3f" % q, "C")
+            print("%.3E" % q, "C")
             break
         else:
             print("you've already solved it")
@@ -154,15 +154,15 @@ def four():
             break
         elif V == "":
             V = E * d
-            print("%.3f" % V, "V")
+            print("%.3E" % V, "V")
             break
         elif E == "":
             E = V / d
-            print("%.3f" % E, "N/C")
+            print("%.3E" % E, "N/C")
             break
         elif d == "":
             d = V / E
-            print("%.3f" % d, "m")
+            print("%.3E" % d, "m")
             break
         else:
             print("you've already solved it")
@@ -190,15 +190,15 @@ def five():
             break
         elif C == "":
             C = q / V
-            print("%.3f" % C, "F")
+            print("%.3E" % C, "F")
             break
         elif q == "":
             q = C * V
-            print("%.3f" % q, "C")
+            print("%.3E" % q, "C")
             break
         elif V == "":
             V = q / C
-            print("%.3f" % V, "V")
+            print("%.3E" % V, "V")
             break
         else:
             print("you've already solved it")
