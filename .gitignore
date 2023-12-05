@@ -16,3 +16,4 @@ password manager/file.txt
 .vscode/extensions.json
 password manager/key.key
 .gitignore
+addresses/AddList.csv
