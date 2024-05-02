@@ -1,13 +1,19 @@
-import os
+import pathlib
 import pandas as pd
 
-path = os.path.abspath(os.path.dirname(__file__))
+path = pathlib.Path.cwd()
 filename = "todo.csv"
 filepath = f"{path}/{filename}"
 checknd = ['nd']
-checkd = ["d"]
+checkd = ['d']
 
-def checktask():
-    checked
+def dtasks():
+    checked = pd.DataFrame(pd.read_csv(filepath))['Progress'].isin(checkd)
+    print(pd.DataFrame(pd.read_csv(filepath))[checked])
 
-checktask()
+def ndtasks():
+    checked = pd.DataFrame(pd.read_csv(filepath))['Progress'].isin(checknd)
+    print(pd.DataFrame(pd.read_csv(filepath))[checked])
+
+ndtasks()
+dtasks()

@@ -1,10 +1,12 @@
-import os
+import pathlib
 import pandas as pd
 
-path = os.path.abspath(os.path.dirname(__file__))
+path = pathlib.Path.cwd()
 filename = "todo.csv"
 filepath = f"{path}/{filename}"
-
+checknd = ['nd']
+checkd = ['d']
+df = pd.read_csv(filepath)
 
 def newtask():
     task = input("What's your task?")
@@ -17,5 +19,18 @@ def readtask():
     df = pd.read_csv(filepath)
     print(df.shape[0])
 
-newtask()
-readtask()
+def dtasks():
+    checked = pd.DataFrame(pd.read_csv(filepath))['Progress'].isin(checkd)
+    print(pd.DataFrame(pd.read_csv(filename))[checked])
+
+def ndtasks():
+    checked = pd.DataFrame(pd.read_csv(filepath))['Progress'].isin(checknd)
+    print(pd.DataFrame(pd.read_csv(filename))[checked])
+    return checked
+
+def dotask():
+    ndtasks()
+    while True:
+        op = str(input("\nwhich task would you like to do? "))
+
+dotask()
