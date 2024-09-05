@@ -31,7 +31,7 @@ def ndtask():
 def dotask():
     ndtask()
     while True:
-        op = int(input("\nwhich task would you like to do? "))
+        op = int(input("\nwhich task would you like to do? ")) - 1
         try:
             opdf = df.iloc[[op]]
         except:
@@ -44,4 +44,17 @@ def dotask():
 #----------
 
 #Program
-ndtask()
+
+print("Hello Hussain, what do you want to do?")
+option= input("\n 1. Create new task\n 2. Do a task\n 3. View your uncompleted tasks\n 4. View completed tasks\n 5. View all tasks\n\noption: ")
+
+if option == "1":
+    newtask()
+elif option == "2":
+    dotask()
+elif option == "3":
+    ndtask()
+elif option == "4":
+    dtask()
+elif option == "5":
+    readtask()
