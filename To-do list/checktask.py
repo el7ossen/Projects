@@ -14,6 +14,3 @@ def dtasks():
 def ndtasks():
     checked = pd.DataFrame(pd.read_csv(filepath))['Progress'].isin(checknd)
     print(pd.DataFrame(pd.read_csv(filepath))[checked])
-
-ndtasks()
-dtasks()
