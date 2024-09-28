@@ -18,3 +18,4 @@ password manager/key.key
 .gitignore
 addresses/AddList.csv
 To-do list/todo.csv
+.DS_Store
